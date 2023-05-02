@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import 'font-awesome/css/font-awesome.min.css';
+import './assets/css/app.css';
+import DashboardPage from './pages/DashboardPage';
+import TypographyPage from './pages/TypographyPage'
+import LoginPage from './pages/auth/LoginPage'
+import ResetPassword from './pages/auth/ResetPassword';
+import ProfilePage from './pages/profile/ProfilePage';
+import ChangePasswordPage from './pages/profile/ChangePasswordPage';
+import UserPreferencesPage from './pages/profile/UserPreferencesPage'
+import AdminBlankPage from './pages/AdminBlankPage';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <Router>
+            <Routes>
+                <Route exact path='/' element={<DashboardPage/>} />
+                <Route exact path='/login' element={<LoginPage/>} />
+                <Route exact path='/reset-password' element={<ResetPassword/>} />
+                <Route exact path='/profile' element={<ProfilePage/>} />
+                <Route exact path='/change-password' element={<ChangePasswordPage/>} />
+                <Route exact path='/preferences' element={<UserPreferencesPage/>} />
+                <Route exact path='/typography' element={<TypographyPage/>} />
+                <Route exact path='/blank-page' element={<AdminBlankPage/>} />
+            </Routes>  
+        </Router>
+    )
 }
 
 export default App;
